@@ -7,9 +7,10 @@ chief.use(express.json())
 
 chief.use(cors({
     origin: "*",
-    methods:"GET",
+    methods:["GET","POST","PUT","DELETE"],
 }))
-
+// Add this line in server.js
+chief.use("/", routes);
 chief.use("/getStatus",(req,res,next)=>{
     const registerData = req.body;
     console.log("registerData:",registerData)
@@ -19,7 +20,7 @@ chief.use("/getStatus",(req,res,next)=>{
 })
 
 
-mongoose.connect("mongodb+srv://bhullarsandipan_db_user:DE4BE8PAB8Dcj1iH@backend-cluster.ckp0bzp.mongodb.net/")
+mongoose.connect("")
 
 .then(()=>{
     const PORT = 5001;
