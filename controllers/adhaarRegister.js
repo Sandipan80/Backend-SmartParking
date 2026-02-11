@@ -1,9 +1,11 @@
 const RegisterModel = require("../model/Register.model");
+const {validateAsync} = require("../service/validation_schema")
 
 const adhaarRegister=async(req,res,next)=>{
-    //  console.log("Adhaar Register controller called")
-    // res.json({status:"Adhaar Register controller called"})
-    const MyForm =req.body;
+     console.log("Adhaar Register controller called")
+    res.json({status:"Adhaar Register controller called"})
+    // const MyForm =await MyForm.validateAsync(req.body) ;
+    
     //step 1 - req
     console.log("MyForm:", MyForm);
     
@@ -13,7 +15,7 @@ const adhaarRegister=async(req,res,next)=>{
     console.log("password", password);
     
 
-    //step 3- validate MONGO DB
+    //step 3- verify MONGO DB
 
     //step 4- store in MONGO DB
     const newUser = new RegisterModel({
